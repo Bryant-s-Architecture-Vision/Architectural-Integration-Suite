@@ -15,8 +15,22 @@ settings:
   initial_count: 1000
 
 environment:
-  docker:
-    image: python:3.8
+  name: uid_generator_environment
+  version: 1
+  description: "Environment for UID Generator"
+  os_type: linux
+  conda:
+    conda_dependencies:
+      channels:
+        - anaconda
+        - conda-forge
+      dependencies:
+        - python=3.8
+        - pip
+        - pip:
+            - numpy  # Add any additional dependencies
+  environment_variables:
+    GENERATION_MODE: "UUID"
 
 command: >-
-  python UIDGen.py
+  python UIDGen.py --use_uuid ${{inputs.use_uuid}}
