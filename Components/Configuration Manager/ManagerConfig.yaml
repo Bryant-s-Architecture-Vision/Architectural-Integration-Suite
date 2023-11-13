@@ -1,0 +1,3 @@
+# ManagerConfig.yaml
+database_uri: "http://example.com/db"
+api_key: "initial-api-key"

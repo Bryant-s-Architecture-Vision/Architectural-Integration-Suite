@@ -1,0 +1,17 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: config_manager
+display_name: Configuration Manager
+version: 1
+
+inputs:
+  config_path:
+    type: uri_file
+    description: "Path to the configuration file"
+  new_settings_path:
+    type: uri_file
+    description: "Path to the new settings file"
+
+command: >-
+  python ConfigManager.py --config_path ${{inputs.config_path}} --new_settings_path ${{inputs.new_settings_path}}
