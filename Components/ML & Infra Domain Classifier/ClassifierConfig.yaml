@@ -1,0 +1,40 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: domain_classifier
+display_name: ML & Infra Domain Classifier
+version: 1
+
+inputs:
+  terraform_output:
+    type: uri_folder
+    description: "Path to Terraform output data"
+  azure_ml_tags:
+    type: uri_folder
+    description: "Path to Azure ML tags data"
+
+outputs:
+  classified_domains:
+    type: uri_folder
+    description: "Output path for classified domain data"
+
+environment:
+  name: domain_classifier_environment
+  version: 1
+  conda:
+    conda_dependencies:
+      channels:
+        - anaconda
+        - conda-forge
+      dependencies:
+        - python=3.8
+        - pip
+        - pip:
+            - azureml-sdk
+            - pandas
+            - numpy
+  environment_variables:
+    CLASSIFICATION_MODE: "TerraformAzureML"
+
+command: >-
+  python DomainClassifier.py --terraform_output ${{inputs.terraform_output}} --azure_ml_tags ${{inputs.azure_ml_tags}} --output ${{outputs.classified_domains}}
