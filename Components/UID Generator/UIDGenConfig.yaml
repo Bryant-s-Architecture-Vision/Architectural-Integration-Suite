@@ -1,0 +1,22 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: uid_generator
+display_name: UID Generator
+version: 1
+
+inputs:
+  use_uuid:
+    type: boolean
+    default: true
+
+settings:
+  prefix: "UID"
+  initial_count: 1000
+
+environment:
+  docker:
+    image: python:3.8
+
+command: >-
+  python UIDGen.py
