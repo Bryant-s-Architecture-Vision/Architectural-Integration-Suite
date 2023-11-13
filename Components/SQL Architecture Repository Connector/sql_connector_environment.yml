@@ -1,0 +1,15 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: sql_connector_environment
+version: 1
+description: "Environment for SQL Architecture Repository Connection"
+
+docker:
+  image: python:3.8
+
+conda:
+  conda_dependencies:
+    channels:
+      - anaconda
+    dependencies:
+      - python=3.8
+      - sqlite3  # Add additional libraries if needed

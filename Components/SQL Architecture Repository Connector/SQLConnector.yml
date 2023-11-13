@@ -1,0 +1,14 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: sql_connector
+display_name: SQL Architecture Repository Connector
+version: 1
+
+inputs:
+  config_path:
+    type: uri_file
+    description: "Path to the configuration file"
+
+command: >-
+  python SQLConnector.py --config_path ${{inputs.config_path}}
