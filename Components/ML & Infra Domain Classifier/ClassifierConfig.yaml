@@ -18,23 +18,7 @@ outputs:
     type: uri_folder
     description: "Output path for classified domain data"
 
-environment:
-  name: domain_classifier_environment
-  version: 1
-  conda:
-    conda_dependencies:
-      channels:
-        - anaconda
-        - conda-forge
-      dependencies:
-        - python=3.8
-        - pip
-        - pip:
-            - azureml-sdk
-            - pandas
-            - numpy
-  environment_variables:
-    CLASSIFICATION_MODE: "TerraformAzureML"
+environment: azureml:domain_classifier_environment:1
 
 command: >-
   python DomainClassifier.py --terraform_output ${{inputs.terraform_output}} --azure_ml_tags ${{inputs.azure_ml_tags}} --output ${{outputs.classified_domains}}
