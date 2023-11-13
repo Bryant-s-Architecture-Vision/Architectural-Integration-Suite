@@ -1,0 +1,3 @@
+# ProcessorConfig.yaml
+input_file: "path/to/input_file.json"
+output_file: "path/to/output_file.json"

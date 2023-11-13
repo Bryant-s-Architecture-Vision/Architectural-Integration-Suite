@@ -1,0 +1,4 @@
+# MapperConfig.yaml
+ml_data_path: "path/to/ml_data.json"
+terraform_data_path: "path/to/terraform_data.json"
+output_path: "path/to/interdependency_map.json"

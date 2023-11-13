@@ -1,0 +1,21 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: mdg_integration_controller
+display_name: MDG Integration Controller
+version: 1
+
+inputs:
+  config_path:
+    type: uri_file
+    description: "Path to the configuration file"
+
+outputs:
+  customization_result:
+    type: uri_file
+    description: "Output path for the customization results"
+
+environment: azureml:mdg_controller_environment:1
+
+command: >-
+  python MDGController.py --config_path ${{inputs.config_path}}

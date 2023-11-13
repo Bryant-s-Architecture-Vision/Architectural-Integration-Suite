@@ -1,0 +1,5 @@
+# AssemblerConfig.yaml
+profiles_path: "path/to/profiles.json"
+diagrams_path: "path/to/diagrams.json"
+templates_path: "path/to/templates.json"
+output_path: "path/to/mdg_technology.xml"

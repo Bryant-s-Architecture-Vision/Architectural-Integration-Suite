@@ -1,0 +1,14 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: diagram_manager
+display_name: Diagram Artifact and Pattern Manager
+version: 1
+
+inputs:
+  config_path:
+    type: uri_file
+    description: "Path to the configuration file"
+
+command: >-
+  python DiagramManager.py --config_path ${{inputs.config_path}}

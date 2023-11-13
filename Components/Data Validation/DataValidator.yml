@@ -1,0 +1,14 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: data_validator
+display_name: Data Validator
+version: 1
+
+inputs:
+  data_path:
+    type: uri_file
+    description: "Path to the data file for validation"
+
+command: >-
+  python DataValidator.py --data_path ${{inputs.data_path}}

@@ -1,0 +1,4 @@
+# MapperConfig.yaml
+azure_ml_data_path: "path/to/azure_ml_data.csv"
+terraform_data_path: "path/to/terraform_data.csv"
+output_path: "path/to/mapping_output.csv"

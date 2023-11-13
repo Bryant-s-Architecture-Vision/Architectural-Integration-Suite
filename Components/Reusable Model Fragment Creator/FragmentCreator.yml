@@ -1,0 +1,24 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: model_fragment_creator
+display_name: Reusable Model Fragment Creator
+version: 1
+
+inputs:
+  fragment_data_path:
+    type: uri_file
+    description: "Path to model fragment data file"
+  catalog_path:
+    type: uri_file
+    description: "Path to the model fragment catalog"
+
+outputs:
+  catalog_update_result:
+    type: uri_file
+    description: "Output path for the updated model fragment catalog"
+
+environment: azureml:model_fragment_creator_environment:1
+
+command: >-
+  python FragmentCreator.py --fragment_data_path ${{inputs.fragment_data_path}} --catalog_path ${{inputs.catalog_path}}

@@ -1,0 +1,24 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: model_generator
+display_name: Starter Model Generator
+version: 1
+
+inputs:
+  azure_ml_path:
+    type: uri_file
+    description: "Path to Azure ML templates file"
+  terraform_path:
+    type: uri_file
+    description: "Path to Terraform templates file"
+
+outputs:
+  model_output:
+    type: uri_file
+    description: "Output path for generated starter models"
+
+environment: azureml:model_generator_environment:1
+
+command: >-
+  python ModelGenerator.py --azure_ml_path ${{inputs.azure_ml_path}} --terraform_path ${{inputs.terraform_path}} --output_path ${{outputs.model_output}}

@@ -1,0 +1,27 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: script_integrator
+display_name: Script and Extension Integrator
+version: 1
+
+inputs:
+  scripts_path:
+    type: uri_file
+    description: "Path to custom scripts data file"
+  extensions_path:
+    type: uri_file
+    description: "Path to custom extensions data file"
+  mdg_path:
+    type: uri_file
+    description: "Path to the MDG Technology file"
+
+outputs:
+  integration_result:
+    type: uri_file
+    description: "Output path for the modified MDG Technology file"
+
+environment: azureml:script_integrator_environment:1
+
+command: >-
+  python ScriptIntegrator.py --scripts_path ${{inputs.scripts_path}} --extensions_path ${{inputs.extensions_path}} --mdg_path ${{inputs.mdg_path}}

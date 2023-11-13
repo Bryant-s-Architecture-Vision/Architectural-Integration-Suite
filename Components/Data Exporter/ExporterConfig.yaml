@@ -1,0 +1,3 @@
+# ExporterConfig.yaml
+input_file: "path/to/processed_data.json"
+output_file: "path/to/exported_data.xlsx"

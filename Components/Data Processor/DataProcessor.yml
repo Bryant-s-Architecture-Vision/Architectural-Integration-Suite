@@ -1,0 +1,17 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: data_processor
+display_name: Data Processor
+version: 1
+
+inputs:
+  input_path:
+    type: uri_file
+    description: "Path to the input data file"
+  output_path:
+    type: uri_file
+    description: "Path for the output processed data file"
+
+command: >-
+  python DataProcessor.py --input_path ${{inputs.input_path}} --output_path ${{inputs.output_path}}

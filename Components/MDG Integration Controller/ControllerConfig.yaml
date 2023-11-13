@@ -1,0 +1,5 @@
+# ControllerConfig.yaml
+# Add your configuration parameters here
+# Example:
+menu_customization: "path/to/menu_customization.json"
+integration_points: "path/to/integration_points.json"

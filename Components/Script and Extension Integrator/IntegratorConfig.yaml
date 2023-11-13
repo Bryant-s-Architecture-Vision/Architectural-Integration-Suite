@@ -1,0 +1,4 @@
+# IntegratorConfig.yaml
+scripts_path: "path/to/scripts.json"
+extensions_path: "path/to/extensions.json"
+mdg_path: "path/to/mdg_technology.xml"

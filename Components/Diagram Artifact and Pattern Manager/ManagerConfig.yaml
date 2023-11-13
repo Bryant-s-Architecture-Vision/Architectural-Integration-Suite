@@ -1,0 +1,8 @@
+# ManagerConfig.yaml
+diagrams:
+  - name: "Example Diagram 1"
+    type: "UML"
+    details: "..."
+  - name: "Example Diagram 2"
+    type: "ArchiMate"
+    details: "..."

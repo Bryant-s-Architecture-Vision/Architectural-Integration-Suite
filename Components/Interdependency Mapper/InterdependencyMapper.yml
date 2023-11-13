@@ -1,0 +1,24 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: interdependency_mapper
+display_name: Interdependency Mapper
+version: 1
+
+inputs:
+  ml_path:
+    type: uri_file
+    description: "Path to ML data file"
+  terraform_path:
+    type: uri_file
+    description: "Path to Terraform data file"
+
+outputs:
+  interdependency_map:
+    type: uri_file
+    description: "Output path for interdependency map"
+
+environment: azureml:interdependency_mapper_environment:1
+
+command: >-
+  python InterdependencyMapper.py --ml_path ${{inputs.ml_path}} --terraform_path ${{inputs.terraform_path}} --output_path ${{outputs.interdependency_map}}

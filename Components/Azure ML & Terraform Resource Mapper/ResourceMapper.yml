@@ -1,0 +1,24 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: resource_mapper
+display_name: Azure ML & Terraform Resource Mapper
+version: 1
+
+inputs:
+  azure_ml_path:
+    type: uri_file
+    description: "Path to Azure ML data file"
+  terraform_path:
+    type: uri_file
+    description: "Path to Terraform data file"
+
+outputs:
+  mapping_output:
+    type: uri_file
+    description: "Output path for the resource mapping results"
+
+environment: azureml:resource_mapper_environment:1
+
+command: >-
+  python ResourceMapper.py --azure_ml_path ${{inputs.azure_ml_path}} --terraform_path ${{inputs.terraform_path}} --output_path ${{outputs.mapping_output}}

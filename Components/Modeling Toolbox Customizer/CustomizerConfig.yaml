@@ -1,0 +1,4 @@
+# CustomizerConfig.yaml
+azure_ml_elements_path: "path/to/azure_ml_elements.json"
+terraform_elements_path: "path/to/terraform_elements.json"
+output_path: "path/to/customized_toolbox.json"

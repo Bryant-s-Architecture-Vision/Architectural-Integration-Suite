@@ -1,0 +1,16 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: data_exporter_environment
+version: 1
+description: "Environment for Data Exporter"
+
+docker:
+  image: python:3.8
+
+conda:
+  conda_dependencies:
+    channels:
+      - anaconda
+    dependencies:
+      - python=3.8
+      - pandas
+      - xlsxwriter  # For Excel export functionality

@@ -1,0 +1,7 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: use_case_analyzer_environment
+version: 1
+description: "Environment for Use Case and Context Analyzer"
+
+docker:
+  image: python:3.8

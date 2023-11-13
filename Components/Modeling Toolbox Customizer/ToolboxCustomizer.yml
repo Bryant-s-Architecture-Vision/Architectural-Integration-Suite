@@ -1,0 +1,24 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: toolbox_customizer
+display_name: Modeling Toolbox Customizer
+version: 1
+
+inputs:
+  azure_ml_path:
+    type: uri_file
+    description: "Path to Azure ML elements file"
+  terraform_path:
+    type: uri_file
+    description: "Path to Terraform elements file"
+
+outputs:
+  toolbox_output:
+    type: uri_file
+    description: "Output path for customized toolbox"
+
+environment: azureml:toolbox_customizer_environment:1
+
+command: >-
+  python ToolboxCustomizer.py --azure_ml_path ${{inputs.azure_ml_path}} --terraform_path ${{inputs.terraform_path}} --output_path ${{outputs.toolbox_output}}

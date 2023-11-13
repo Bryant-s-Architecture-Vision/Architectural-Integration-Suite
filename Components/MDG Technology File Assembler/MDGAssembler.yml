@@ -1,0 +1,27 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: mdg_assembler
+display_name: MDG Technology File Assembler
+version: 1
+
+inputs:
+  profiles_path:
+    type: uri_file
+    description: "Path to profiles data file"
+  diagrams_path:
+    type: uri_file
+    description: "Path to diagram definitions file"
+  templates_path:
+    type: uri_file
+    description: "Path to model templates file"
+
+outputs:
+  mdg_output:
+    type: uri_file
+    description: "Output path for the assembled MDG Technology XML file"
+
+environment: azureml:mdg_assembler_environment:1
+
+command: >-
+  python MDGAssembler.py --profiles_path ${{inputs.profiles_path}} --diagrams_path ${{inputs.diagrams_path}} --templates_path ${{inputs.templates_path}} --output_path ${{outputs.mdg_output}}

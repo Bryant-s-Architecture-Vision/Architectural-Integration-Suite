@@ -1,0 +1,17 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: file_reader
+display_name: File Reader
+version: 1
+
+inputs:
+  md_file_path:
+    type: uri_file
+    description: "Path to the markdown file"
+  output_path:
+    type: uri_file
+    description: "Path for the output HTML file"
+
+command: >-
+  python FileReader.py --md_file_path ${{inputs.md_file_path}} --output_path ${{inputs.output_path}}

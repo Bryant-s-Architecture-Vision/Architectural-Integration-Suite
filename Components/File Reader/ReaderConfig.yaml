@@ -1,0 +1,3 @@
+# ReaderConfig.yaml
+markdown_file: "path/to/markdown_file.md"
+output_file: "path/to/output_file.html"

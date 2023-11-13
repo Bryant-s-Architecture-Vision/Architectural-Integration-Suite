@@ -1,0 +1,4 @@
+# ArchiConfig.yaml
+ml_data_path: "path/to/ml_data.csv"
+terraform_data_path: "path/to/terraform_data.csv"
+output_path: "path/to/architecture_mapping_output.csv"

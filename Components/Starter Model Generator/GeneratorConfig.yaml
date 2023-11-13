@@ -1,0 +1,5 @@
+# GeneratorConfig.yaml
+azure_ml_templates_path: "path/to/azure_ml_templates.json"
+terraform_templates_path: "path/to/terraform_templates.json"
+output_path: "path/to/starter_models.json"
+

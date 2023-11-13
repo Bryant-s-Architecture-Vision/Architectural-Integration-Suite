@@ -1,0 +1,2 @@
+# ValidatorConfig.yaml
+data_file: "path/to/processed_data.csv"

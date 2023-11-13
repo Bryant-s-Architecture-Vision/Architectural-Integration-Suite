@@ -1,0 +1,7 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: resource_descriptor_environment
+version: 1
+description: "Environment for Resource Descriptor and Validator"
+
+docker:
+  image: python:3.8
