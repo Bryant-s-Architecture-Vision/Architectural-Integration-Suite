@@ -1,15 +1,11 @@
+# file_reader_environment.yml
 $schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
 name: file_reader_environment
 version: 1
 description: "Environment for File Reader"
 
-docker:
-  image: python:3.8
+# Using a pre-built base image from Microsoft
+image: mcr.microsoft.com/azureml/base:latest
 
-conda:
-  conda_dependencies:
-    channels:
-      - anaconda
-    dependencies:
-      - python=3.8
-      - markdown
+# Path to the Conda environment file
+conda_file: ./conda-specification.yml

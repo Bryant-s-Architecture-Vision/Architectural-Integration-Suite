@@ -2,24 +2,41 @@
 import argparse
 import os
 import markdown
+import logging
+
+# Setup basic logging
+logging.basicConfig(level=logging.INFO)
 
 def read_and_convert_md_to_html(file_path):
-    # Read the markdown file
-    with open(file_path, 'r') as md_file:
-        md_content = md_file.read()
+    # Validate file path
+    if not os.path.exists(file_path):
+        logging.error(f"Markdown file not found: {file_path}")
+        return None
 
-    # Convert markdown to HTML
-    html_content = markdown.markdown(md_content)
+    try:
+        # Read the markdown file
+        with open(file_path, 'r') as md_file:
+            md_content = md_file.read()
 
-    # Return the HTML content
-    return html_content
+        # Convert markdown to HTML
+        html_content = markdown.markdown(md_content)
+        return html_content
+
+    except Exception as e:
+        logging.error(f"Error reading/converting file: {e}")
+        return None
 
 def main(md_file_path, output_path):
     html_content = read_and_convert_md_to_html(md_file_path)
 
-    # Save the HTML content to the output file
-    with open(output_path, 'w') as html_file:
-        html_file.write(html_content)
+    if html_content is not None:
+        # Save the HTML content to the output file
+        try:
+            with open(output_path, 'w') as html_file:
+                html_file.write(html_content)
+            logging.info(f"HTML content written to {output_path}")
+        except Exception as e:
+            logging.error(f"Error writing to file: {e}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

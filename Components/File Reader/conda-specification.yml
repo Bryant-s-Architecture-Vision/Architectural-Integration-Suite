@@ -1,0 +1,8 @@
+# conda-specification.yml
+
+name: file_reader_environment
+dependencies:
+  - python=3.8
+  - pip:
+      - azureml-defaults
+      - markdown

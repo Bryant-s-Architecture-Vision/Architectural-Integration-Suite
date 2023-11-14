@@ -1,9 +1,9 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
 type: command
-
 name: file_reader
 display_name: File Reader
 version: 1
+environment: azureml:file_reader_environment:1  # Reference the environment
 
 inputs:
   md_file_path:
