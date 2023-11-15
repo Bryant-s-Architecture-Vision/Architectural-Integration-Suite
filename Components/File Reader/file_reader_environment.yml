@@ -3,9 +3,9 @@ $schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
 name: file_reader_environment
 version: 1
 description: "Environment for File Reader"
-
 # Using a pre-built base image from Microsoft
 image: mcr.microsoft.com/azureml/base:latest
-
 # Path to the Conda environment file
-conda_file: ./conda-specification.yml
+conda_file: ../../Components/File Reader/conda-specification.yml
+
+
